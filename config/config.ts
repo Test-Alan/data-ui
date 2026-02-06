@@ -75,9 +75,4 @@ export default defineConfig({
   mfsu: false,
   webpack5: {},
   exportStatic: {},
-  // 禁用需要 git 的功能
-  alias: {},
-  define: {
-    'process.env.GIT_OPTIONAL_LOCKS': '0',
-  },
 });
