@@ -72,16 +72,7 @@ export default defineConfig({
   // Fast Refresh 热更新
   fastRefresh: {},
   nodeModulesTransform: { type: 'none' },
-  mfsu: { strategy: 'normal' },
+  mfsu: {},
   webpack5: {},
   exportStatic: {},
-  // Disable git-dependent features
-  chainWebpack(config: any) {
-    config.plugin('progress-webpack-plugin').tap((args: any) => {
-      if (args[0]) {
-        args[0].activeModules = false;
-      }
-      return args;
-    });
-  },
 });
