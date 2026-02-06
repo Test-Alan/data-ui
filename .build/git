@@ -1,0 +1,28 @@
+#!/bin/bash
+# Git stub to prevent build errors
+# This wrapper allows the build process to continue even if git is not available
+
+case "$1" in
+  "rev-parse")
+    case "$2" in
+      "--short")
+        echo "v0-build"
+        exit 0
+        ;;
+      "--show-toplevel")
+        echo "$(pwd)"
+        exit 0
+        ;;
+      *)
+        exit 0
+        ;;
+    esac
+    ;;
+  "describe")
+    echo "v0-build"
+    exit 0
+    ;;
+  *)
+    exit 0
+    ;;
+esac
