@@ -1,0 +1,220 @@
+.job-template-container {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+
+  .template-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+
+    .ant-typography {
+      margin-bottom: 8px;
+    }
+  }
+
+  .template-list {
+    .template-card {
+      border-radius: 8px;
+      border: 1px solid #e8e8e8;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: #1890ff;
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+        transform: translateY(-2px);
+      }
+
+      .template-card-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 8px 0;
+
+        .template-icon {
+          flex-shrink: 0;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #f6f8ff;
+          border-radius: 6px;
+          color: #1890ff;
+          font-size: 18px;
+        }
+
+        .template-info {
+          flex: 1;
+          min-width: 0;
+
+          .template-name {
+            margin-bottom: 4px !important;
+            font-weight: 500;
+          }
+
+          .template-description {
+            font-size: 12px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
+      }
+
+      .ant-card-actions {
+        background: #fafafa;
+        border-top: 1px solid #e8e8e8;
+
+        li {
+          margin: 0;
+          
+          .card-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 4px;
+            color: #666;
+            font-size: 12px;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: #1890ff;
+            }
+
+            .anticon {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.template-modal {
+  .template-modal-content {
+    .template-meta {
+      margin-bottom: 24px;
+      padding: 16px;
+      background: #f8f9fa;
+      border-radius: 6px;
+      border-left: 4px solid #1890ff;
+    }
+
+    .template-usage {
+      margin-bottom: 24px;
+      padding: 16px;
+      background: #fff7e6;
+      border-radius: 6px;
+      border-left: 4px solid #faad14;
+
+      .usage-instructions {
+        ul {
+          margin: 12px 0;
+          padding-left: 20px;
+
+          li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+
+            .ant-typography {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+
+    .template-sql {
+      .sql-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+
+        .copy-button {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 12px;
+          height: 28px;
+          padding: 0 12px;
+          border-radius: 4px;
+          
+          .anticon {
+            font-size: 12px;
+          }
+          
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(24, 144, 255, 0.25);
+          }
+        }
+      }
+
+      .sql-content {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 16px;
+        border-radius: 6px;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 13px;
+        line-height: 1.5;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-all;
+        max-height: 500px;
+        overflow-y: auto;
+        position: relative;
+
+        /* SQL语法高亮样式 */
+        code {
+          color: inherit;
+          background: none;
+          padding: 0;
+          font-size: inherit;
+          font-family: inherit;
+        }
+      }
+    }
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .job-template-container {
+    padding: 12px;
+
+    .template-list {
+      .template-card {
+        .template-card-content {
+          .template-info {
+            .template-description {
+              -webkit-line-clamp: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .template-modal {
+    .ant-modal {
+      margin: 0;
+      max-width: 100vw;
+    }
+
+    .template-modal-content {
+      .template-sql {
+        .sql-content {
+          font-size: 12px;
+          max-height: 300px;
+        }
+      }
+    }
+  }
+}

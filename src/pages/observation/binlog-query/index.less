@@ -1,0 +1,242 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.pageTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1890ff;
+  font-weight: 600;
+
+  .titleIcon {
+    font-size: 18px;
+  }
+}
+
+.searchCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  .ant-card-head {
+    border-bottom: 1px solid #f0f0f0;
+    background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+    
+    .ant-card-head-title {
+      color: #1890ff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      
+      &::before {
+        content: '';
+        width: 3px;
+        height: 16px;
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+        border-radius: 2px;
+      }
+    }
+  }
+  
+  .ant-form-item-label > label {
+    color: #262626;
+    font-weight: 500;
+  }
+  
+  .ant-input {
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      border-color: #1890ff;
+    }
+    
+    &:focus {
+      border-color: #1890ff;
+      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    }
+  }
+  
+  .ant-select {
+    .ant-select-selector {
+      border-radius: 6px;
+      border: 1px solid #d9d9d9;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        border-color: #1890ff;
+      }
+    }
+    
+    &.ant-select-focused .ant-select-selector {
+      border-color: #1890ff;
+      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    }
+  }
+}
+
+.resultCard {
+  flex: 1;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  .ant-card-head {
+    border-bottom: 1px solid #f0f0f0;
+    background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+  }
+  
+  .ant-card-body {
+    padding: 16px;
+  }
+}
+
+.resultTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1890ff;
+  font-weight: 600;
+}
+
+// 表格行样式
+.evenRow {
+  background-color: #fafafa;
+}
+
+.oddRow {
+  background-color: #ffffff;
+}
+
+// 表格优化
+:global {
+  .ant-table {
+    .ant-table-thead > tr > th {
+      background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+      border-bottom: 2px solid #e8f4ff;
+      color: #1890ff;
+      font-weight: 600;
+      padding: 12px 16px;
+      
+      &::before {
+        display: none;
+      }
+    }
+    
+    .ant-table-tbody > tr {
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #e6f7ff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+      }
+      
+      > td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+    }
+    
+    .ant-table-cell {
+      .ant-tag {
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 12px;
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+  
+  // 分页器样式
+  .ant-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding: 16px 0;
+    
+    .ant-pagination-total-text {
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .ant-pagination-item {
+      border-radius: 6px;
+      border: 1px solid #d9d9d9;
+      
+      &.ant-pagination-item-active {
+        background: #1890ff;
+        border-color: #1890ff;
+        
+        a {
+          color: white;
+        }
+      }
+      
+      &:hover {
+        border-color: #1890ff;
+        
+        a {
+          color: #1890ff;
+        }
+      }
+    }
+  }
+  
+  // 按钮样式优化
+  .ant-btn {
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    
+    &.ant-btn-primary {
+      background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+      border: none;
+      box-shadow: 0 2px 6px rgba(24, 144, 255, 0.3);
+      
+      &:hover {
+        background: linear-gradient(135deg, #096dd9 0%, #0050b3 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+      }
+    }
+    
+    &.ant-btn-default {
+      border: 1px solid #d9d9d9;
+      
+      &:hover {
+        border-color: #1890ff;
+        color: #1890ff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(24, 144, 255, 0.2);
+      }
+    }
+  }
+  
+  // 输入框前缀图标样式
+  .ant-input-prefix {
+    color: #1890ff;
+  }
+  
+  // 工具提示样式
+  .ant-tooltip {
+    .ant-tooltip-inner {
+      background: #1890ff;
+      border-radius: 6px;
+    }
+    
+    .ant-tooltip-arrow::before {
+      background: #1890ff;
+    }
+  }
+} 

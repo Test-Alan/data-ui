@@ -1,0 +1,408 @@
+// 强制覆盖全局样式，确保生产环境也生效
+.flink-management-page,
+.flink-management-page *,
+.flink-responsive-fix,
+.flink-responsive-fix * {
+  box-sizing: border-box !important;
+}
+
+// 最高优先级选择器，确保生产环境中样式不被覆盖
+.flink-management-page.flink-responsive-fix {
+  // 整体浅灰背景
+  background: #f5f5f5 !important;
+  
+  // 响应式容器
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative !important; // 确保定位上下文
+  min-height: 100vh !important; // 确保最小高度
+  
+  // 防止内容被边框遮盖的安全区域
+  padding: 0 4px !important;
+  box-sizing: border-box !important;
+  
+  @media (max-width: 768px) {
+    padding: 0 2px !important;
+  }
+
+  // 覆盖 PageContainer 内 Header 与 Tabs 样式 - 使用最强的特异性
+  // 提升面包屑与标题层级，避免被内容区遮挡
+  .ant-pro-page-container .ant-page-header {
+    position: relative !important;
+    z-index: 10 !important;
+    background: #f5f5f5 !important;
+    padding: 16px 24px !important;
+    margin-bottom: 0 !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    
+    // 确保标题文字不被遮挡
+    .ant-page-header-heading-title {
+      line-height: 1.5 !important;
+      margin-bottom: 4px !important;
+      font-size: 20px !important;
+      font-weight: 600 !important;
+      color: #262626 !important;
+      z-index: 11 !important;
+      position: relative !important;
+    }
+    
+    // 副标题样式
+    .ant-page-header-heading-sub-title {
+      line-height: 1.4 !important;
+      color: #595959 !important;
+      font-size: 14px !important;
+      z-index: 11 !important;
+      position: relative !important;
+    }
+    
+    // 面包屑样式优化
+    .ant-breadcrumb {
+      margin-bottom: 8px !important;
+      z-index: 11 !important;
+      position: relative !important;
+      
+      .ant-breadcrumb-link {
+        color: #595959 !important;
+        font-size: 14px !important;
+      }
+      
+      .ant-breadcrumb-separator {
+        color: #8c8c8c !important;
+      }
+    }
+    
+    // 小屏幕下头部样式调整
+    @media (max-width: 768px) {
+      padding: 12px 16px !important;
+      
+      .ant-page-header-heading-title {
+        font-size: 18px !important;
+      }
+      
+      .ant-page-header-heading-sub-title {
+        font-size: 13px !important;
+      }
+      
+      .ant-breadcrumb {
+        margin-bottom: 6px !important;
+        
+        .ant-breadcrumb-link {
+          font-size: 13px !important;
+        }
+      }
+    }
+    
+    @media (max-width: 480px) {
+      padding: 8px 12px !important;
+      
+      .ant-page-header-heading-title {
+        font-size: 16px !important;
+      }
+      
+      .ant-page-header-heading-sub-title {
+        font-size: 12px !important;
+      }
+      
+      .ant-breadcrumb {
+        margin-bottom: 4px !important;
+        
+        .ant-breadcrumb-link {
+          font-size: 12px !important;
+        }
+      }
+    }
+  }
+
+  // Tabs 层级略低于 Header，但高于内容
+  &.flink-responsive-fix .ant-pro-page-container-tabs {
+    position: relative !important;
+    z-index: 9 !important;
+    background: #f5f5f5 !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    .ant-tabs-nav {
+      margin: 0 16px !important;
+      padding: 0 8px !important; // 添加内边距防止文字被遮盖
+      border: none !important;
+      
+      // 小屏幕下的Tab样式调整
+      @media (max-width: 1200px) {
+        margin: 0 12px !important;
+        padding: 0 6px !important;
+      }
+      
+      @media (max-width: 768px) {
+        margin: 0 8px !important;
+        padding: 0 4px !important;
+        overflow-x: auto !important;
+        
+        .ant-tabs-nav-wrap {
+          overflow-x: auto !important;
+          padding: 4px 0 !important; // 确保Tab内容不被遮盖
+        }
+      }
+      
+      @media (max-width: 480px) {
+        margin: 0 4px !important;
+        padding: 0 2px !important;
+      }
+    }
+
+    .ant-tabs-tab {
+      background: transparent !important;
+      padding: 8px 4px !important; // 增加左右内边距
+      margin: 0 2px !important; // 增加Tab之间的间距
+      border: none !important;
+      
+      // 小屏幕下确保有足够间距
+      @media (max-width: 768px) {
+        padding: 6px 2px !important;
+        margin: 0 1px !important;
+      }
+      
+      @media (max-width: 480px) {
+        padding: 4px 1px !important;
+        margin: 0 !important;
+      }
+    }
+
+    // Tab 按钮文字及布局 - 加强特异性
+    .ant-tabs-tab .ant-tabs-tab-btn {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      color: rgba(0, 0, 0, 0.85) !important;
+      font-size: 14px !important;
+      transition: color 0.3s !important;
+      padding: 4px 8px !important; // 增加按钮内边距
+      border-radius: 4px !important; // 添加圆角
+      min-height: 28px !important; // 确保最小高度
+      box-sizing: border-box !important;
+      white-space: nowrap !important;
+      
+      // 小屏幕下的Tab按钮样式
+      @media (max-width: 768px) {
+        font-size: 12px !important;
+        gap: 2px !important;
+        padding: 2px 6px !important;
+        min-height: 24px !important;
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 11px !important;
+        gap: 1px !important;
+        padding: 1px 4px !important;
+        min-height: 20px !important;
+      }
+    }
+
+    // 选中态 - 加强特异性
+    .ant-tabs-tab-active .ant-tabs-tab-btn {
+      /* 统一选中 Tab 字体颜色及加粗样式 */
+      color: #165DFF !important;
+      font-weight: 600 !important;
+    }
+
+    // 蓝色下划线指示器
+    .ant-tabs-ink-bar {
+      background: #165DFF !important;
+      height: 2px !important;
+      border-radius: 2px !important;
+    }
+  }
+
+  // 数字徽标 - 加强特异性避免被全局样式覆盖
+  .tab-badge {
+    background: #f0f0f0 !important;
+    color: #666 !important;
+    border-radius: 10px !important;
+    padding: 0 6px !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    display: inline-block !important;
+    min-width: 20px !important;
+    text-align: center !important;
+    margin-left: 4px !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    
+    // 小屏幕下徽标样式调整
+    @media (max-width: 768px) {
+      font-size: 10px !important;
+      line-height: 16px !important;
+      padding: 0 4px !important;
+      min-width: 16px !important;
+      margin-left: 2px !important;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 9px !important;
+      line-height: 14px !important;
+      padding: 0 3px !important;
+      min-width: 14px !important;
+      margin-left: 1px !important;
+    }
+  }
+
+  // 内容区域 - 加强特异性防止被全局样式覆盖
+  .flink-content-wrapper {
+    background: #fff !important;
+    min-height: 500px !important;
+    padding: 16px !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important; // 确保padding不会导致溢出
+    margin: 0 auto !important; // 居中显示
+    position: relative !important;
+    // 内容层级应低于 Header/Tabs，避免遮挡
+    z-index: 1 !important;
+
+    // 表格统一样式 - 加强特异性
+    .ant-table {
+      border: 1px solid #E5E6EB !important;
+      border-radius: 6px !important;
+      width: 100% !important;
+      table-layout: auto !important;
+      // 避免被外层容器裁剪导致文字被遮挡
+      overflow: visible !important;
+    }
+
+    .ant-table-thead > tr > th {
+      background: #ffffff !important;
+      color: #1D2129 !important;
+      font-weight: 600 !important;
+      border-color: #E5E6EB !important;
+      padding: 12px 8px !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .ant-table-tbody > tr > td {
+      border-color: #E5E6EB !important;
+      padding: 12px 8px !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+    // 首行微调：移除第一行顶部内边距
+    .ant-table-tbody > tr:first-child > td {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    // 去除双滚动条并让表格横向滚动自适应
+    .ant-table-container {
+      overflow-x: auto;
+      // 显式关闭裁剪，避免外框遮挡文字
+      overflow: visible !important;
+    }
+    
+    // 响应式表格
+    .ant-table {
+      min-width: 1200px; // 保证表格最小宽度
+    }
+    
+    // 小屏幕适配 - 强化样式优先级
+    @media (max-width: 1400px) {
+      padding: 12px !important;
+      
+      .ant-table {
+        min-width: 1000px !important;
+      }
+    }
+    
+    @media (max-width: 1200px) {
+      padding: 8px !important;
+      
+      .ant-table {
+        min-width: 900px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      padding: 6px !important;
+      
+      .ant-table {
+        min-width: 800px !important;
+        font-size: 12px !important;
+      }
+      
+      // 小屏幕下表格内容的特殊处理
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td {
+        // 去掉上下内边距，缩小行高
+        padding: 0 6px !important;
+        white-space: nowrap !important; // 防止文字换行
+        overflow: hidden !important;
+        text-overflow: ellipsis !important; // 文字溢出显示省略号
+        box-sizing: border-box !important;
+      }
+
+      // 小屏幕下也移除首行顶部内边距
+      .ant-table-tbody > tr:first-child > td {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      padding: 4px !important;
+      
+      .ant-table {
+        min-width: 600px !important;
+        font-size: 11px !important;
+      }
+      
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td {
+        padding: 0 4px !important;
+        font-size: 10px !important;
+      }
+
+      // 极小屏幕下同样移除首行顶部内边距
+      .ant-table-tbody > tr:first-child > td {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+
+    // 统一按钮样式：小尺寸、圆角、字体 - 强化优先级
+    .ant-btn {
+      border-radius: 8px !important;
+      height: 32px !important;
+      font-size: 13px !important;
+      box-sizing: border-box !important;
+      padding: 0 12px !important;
+      
+      // 小屏幕下按钮样式调整
+      @media (max-width: 1200px) {
+        height: 28px !important;
+        font-size: 12px !important;
+        padding: 0 8px !important;
+      }
+      
+      @media (max-width: 768px) {
+        height: 26px !important;
+        font-size: 11px !important;
+        padding: 0 6px !important;
+      }
+      
+      @media (max-width: 480px) {
+        height: 24px !important;
+        font-size: 10px !important;
+        padding: 0 4px !important;
+      }
+    }
+
+    .ant-btn-primary {
+      background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+      border: none !important;
+      box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3) !important;
+      font-weight: 600 !important;
+      color: #fff !important;
+    }
+  }
+} 
